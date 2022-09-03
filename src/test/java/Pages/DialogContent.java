@@ -20,8 +20,8 @@ public class DialogContent extends Parent{
     @FindBy(css = "button[aria-label='LOGIN']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//span[text()='Accept all cookies']")
-    private WebElement cookies;
+    @FindBy(xpath = "(//button[@class='consent-give'])[1]")
+    private WebElement acceptCookies;
     @FindBy(xpath = "(//span[contains(text(),'Dashboard')])[2]")
     private WebElement dashboard;
 
@@ -47,7 +47,8 @@ public class DialogContent extends Parent{
     {
         switch (strElement)
         {
-
+            case "username" : myElement=username;break;
+            case "password" : myElement=password;break;
 
         }
         sendKeysFunction(myElement,value);
@@ -57,7 +58,8 @@ public class DialogContent extends Parent{
     {
         switch (strElement)
         {
-
+            case "loginButton" : myElement=loginButton;break;
+            case "acceptCookies":myElement=acceptCookies;break;
         }
         clickFunction(myElement);
     }
@@ -66,7 +68,7 @@ public class DialogContent extends Parent{
     {
         switch (strElement)
         {
-
+            case "dashboard" : myElement=dashboard;break;
         }
         verfyContainsText(myElement,text);
     }
