@@ -7,7 +7,7 @@ import io.cucumber.java.en.And;
 
 import java.util.List;
 
-public class _01_HumanResPositionSteps {
+public class _01_HRPositionCategorySteps {
     LeftNav ln=new LeftNav();
     DialogContent dc=new DialogContent();
     @And("Click on the element in the left nav bar")
@@ -15,7 +15,6 @@ public class _01_HumanResPositionSteps {
         List<String> listElement=elements.asList(String.class);
         for (int i = 0; i < listElement.size(); i++) {
             ln.findAndClick(listElement.get(i));
-
         }
     }
 

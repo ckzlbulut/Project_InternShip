@@ -15,8 +15,7 @@ Feature: Human resource position functionality
       | add |
 
     And User sending the keys in Dialog content
-      | nameInput | TestPosition |
-      | shortName | TstPos       |
+      | nameInput | TestCat |
 
     And Click on the element in the Dialog
       | saveButton |
