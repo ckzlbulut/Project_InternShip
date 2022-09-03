@@ -31,6 +31,10 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//ms-text-field[@formcontrolname='name']//input")
     private WebElement nameInput;
 
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']//input")
+    private WebElement shortNameInput;
+
+
     @FindBy(xpath = "//ms-save-button//button")
     private WebElement saveButton;
 
@@ -49,7 +53,8 @@ public class DialogContent extends Parent{
         {
             case "username" : myElement=username;break;
             case "password" : myElement=password;break;
-
+            case "nameInput" : myElement=nameInput;break;
+            case "shortName" : myElement=shortNameInput;break;
         }
         sendKeysFunction(myElement,value);
     }
@@ -60,6 +65,8 @@ public class DialogContent extends Parent{
         {
             case "loginButton" : myElement=loginButton;break;
             case "acceptCookies":myElement=acceptCookies;break;
+            case "add":myElement=addButton;break;
+            case "saveButton":myElement=saveButton;break;
         }
         clickFunction(myElement);
     }
@@ -69,6 +76,7 @@ public class DialogContent extends Parent{
         switch (strElement)
         {
             case "dashboard" : myElement=dashboard;break;
+            case "success":myElement=successMessage;break;
         }
         verfyContainsText(myElement,text);
     }
