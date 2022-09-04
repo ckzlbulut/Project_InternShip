@@ -51,10 +51,11 @@ public class Parent {
         waitUntilVisible(element);
         Assert.assertTrue(element.getText().toLowerCase().contains(text.toLowerCase()));
     }
-
+    //DialogContent dc=new DialogContent();
     public void waitUntilLoading() {
         WebDriverWait wait=new WebDriverWait(GWD.driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
+        //wait.until(ExpectedConditions.elementToBeClickable(dc.searchButton));
     }
 
     public void selectFunctionByText(WebElement element,String text)

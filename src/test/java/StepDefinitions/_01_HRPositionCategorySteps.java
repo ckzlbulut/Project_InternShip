@@ -39,4 +39,12 @@ public class _01_HRPositionCategorySteps {
     public void successMessageShouldBeDisplayed() {
         dc.findAndContainsText("success","successfully");
     }
+
+    @And("User delete from Dialog")
+    public void userDeleteFromDialog(DataTable elements) {
+        List<String> listElement = elements.asList(String.class);
+        for (int i = 0; i < listElement.size(); i++) {
+            dc.SearchAndDelete(listElement.get(i));
+        }
+    }
 }
