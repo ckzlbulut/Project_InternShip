@@ -39,7 +39,7 @@ public class _09_BankAccountAdd {
       dialogC.findAndClick("BankAccCurrency");
       dialogC.findAndClick("Try");
     }
-
+//
 
     @And("Search for the name you gave for the edit")
     public void searchForTheNameYouGaveForTheEdit(DataTable elements) {
