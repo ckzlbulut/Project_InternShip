@@ -113,6 +113,24 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[1]")
     private WebElement searchInput;
 
+    //--- SG8_3
+
+    @FindBy(xpath = "//mat-form-field//textarea")
+    private WebElement description;
+    @FindBy(xpath = "//mat-select[@formcontrolname=\"attachmentStages\"]")
+    private WebElement matSelect;
+    @FindBy(xpath = "//span[text()=\" Examination \"]")
+    private WebElement examination;
+
+    //--SG8_4
+
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'GENERAL.BUTTON.ADD')]//button")
+    private WebElement addButtonField;
+
+    @FindBy(xpath="//ms-text-field[@formcontrolname='code']//input")
+    private WebElement codeInput;
+
+
     WebElement myElement;
     public void findAndSend(String strElement,String value)
     {
@@ -128,6 +146,8 @@ public class DialogContent extends Parent{
             case "searchName":myElement=searchName;break;
             case "code" : myElement=code;break;
             case "searchInput":myElement=searchInput;break;
+            case "description": myElement = description;break;
+            case "codeInput": myElement =codeInput ;break;
 
         }
         sendKeysFunction(myElement,value);
@@ -150,6 +170,10 @@ public class DialogContent extends Parent{
             case "deleteButton":myElement=deleteButton;break;
             case "deleteDialogBtn":myElement=deleteDialogBtn;break;
             case "addButton":myElement=addButton;break;
+            case "matSelect": myElement = matSelect;break;
+            case "examination": myElement = examination;break;
+            case "addButtonField": myElement =addButtonField ;break;
+
         }
         clickFunction(myElement);
     }
