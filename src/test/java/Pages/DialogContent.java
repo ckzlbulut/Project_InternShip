@@ -106,6 +106,8 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//*[contains(@class,'mat-column-name')]")
     public WebElement denemeName;
 
+    @FindBy(xpath = "")
+
     WebElement myElement;
     public void findAndSend(String strElement,String value)
     {
