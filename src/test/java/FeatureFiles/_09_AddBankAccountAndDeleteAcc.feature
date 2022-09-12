@@ -12,7 +12,8 @@ Feature:Add Bank Account and Delete Bank Account
     And Click on the element in the Dialog
       | add |
 
-    And User sending the keys in Dialog Content
+    #User sending the keys in Dialog content
+    And User sending the keys in Dialog content
       | nameInput | flexible445 |
       | BankIban  | TR142       |
       | IntCode   | 12345       |
