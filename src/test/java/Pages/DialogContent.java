@@ -51,6 +51,7 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//ms-edit-button//button")
     private WebElement editButton;
 
+
     @FindBy(xpath = "//span[contains(text(),'Delete')]")
     private WebElement deleteDialogBtn;
 

@@ -7,7 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LeftNav extends Parent {
 
-    public LeftNav(){
+    //
+
+    public LeftNav() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
@@ -58,9 +60,6 @@ public class LeftNav extends Parent {
     @FindBy(xpath = "//*[text()='Employees']")
     private WebElement Employess;
 
-    @FindBy(xpath = "(//*[text()='Bank Accounts'])[1]")
-    private WebElement bankAccount;
-
     WebElement myElement;
 
     public  void findAndClick(String strElement) {
@@ -69,12 +68,6 @@ public class LeftNav extends Parent {
             case "setupHuman":myElement=setupHuman;break;
             case "positionsCategories":myElement=positionsCategories;break;
             case "attestation":myElement=attestations;break;
-            case "setup":myElement=setup;break;
-            case "parameters":myElement=parameters;break;
-            case "BankAccounts":myElement=bankAccount;break;
-
-
-
         }
         clickFunction(myElement);
     }
