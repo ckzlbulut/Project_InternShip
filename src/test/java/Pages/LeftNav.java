@@ -60,7 +60,6 @@ public class LeftNav extends Parent {
     private WebElement GradeLevel;
 
     WebElement myElement;
-
     public  void findAndClick(String strElement) {
         switch (strElement) {
             case "humanResources":myElement=humanResources;break;
