@@ -25,7 +25,14 @@ public class _09_BankAccountAdd {
 
     }
 
+    @And("User sending the keys in Dialog Content")
+    public void userSendingTheKeysInDialogContent(DataTable elements) {
+        List<List<String>> listelements=elements.asLists(String.class);
 
+        for (int i = 0; i < listelements.size(); i++) {
+            dialogC.findAndSend(listelements.get(i).get(0),listelements.get(i).get(1));
+        }
+    }
 
     @And("user select choose currently from Dialog Content")
     public void userSelectChooseCurrentlyFromDialogContent() {
