@@ -15,6 +15,8 @@ public class DialogContent extends Parent{
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
+    // selam safak yazdı
+
     @FindBy(id = "mat-input-0")
     private WebElement username;
 
