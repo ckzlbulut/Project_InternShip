@@ -16,6 +16,8 @@ public class DialogContent extends Parent{
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
+
+
     @FindBy(id = "mat-input-0")
     private WebElement username;
 
@@ -33,30 +35,16 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
     private WebElement addButton;
 
-    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']//input")
-    private WebElement nameInput;
+    // @FindBy(xpath = "//ms-text-field[@formcontrolname='name']//input")
+    //private WebElement nameInput;
 
     @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']//input")
     private WebElement shortNameInput;
 
+
     @FindBy(xpath = "//ms-save-button//button")
     private WebElement saveButton;
 
-    @FindBy(xpath = "//ms-search-button//button")
-    public WebElement searchButton;
-
-    @FindBy(xpath = "//ms-delete-button//button")
-    private WebElement deleteButton;
-
-    @FindBy(xpath = "//ms-edit-button//button")
-    private WebElement editButton;
-
-
-    @FindBy(xpath = "//span[contains(text(),'Delete')]")
-    private WebElement deleteDialogBtn;
-
-    @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[1]")
-    private WebElement searchInput;
     @FindBy(css = "dynamic-view[class='ng-star-inserted']")
     private WebElement  successMessage;
     //div[contains(text(),'successfully')]
@@ -64,6 +52,61 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//div[contains(text(),'already exists')]")
     private WebElement alreadyExist;
 
+    // @FindBy(xpath = "(//*[@placeholder='GENERAL.FIELD.NAME'])[2]")
+    // private WebElement bankAccountName;
+
+    @FindBy(css = "input[data-placeholder='IBAN']")
+    private WebElement BankIban;
+
+    @FindBy(xpath = "//mat-select[@formcontrolname='currency']")
+    private WebElement BankAccCurrency;//
+
+    @FindBy(xpath = "//ms-text-field[@placeholder='GENERAL.FIELD.INTEGRATION_CODE']//input")
+    private WebElement IntCode;
+
+
+    @FindBy(xpath = "//*[text()=' TRY ']")
+    private WebElement Try;//
+
+    @FindBy(xpath = "//ms-edit-button//button")
+    private WebElement editButton;
+
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']//input")
+    private WebElement  nameInput;
+
+    @FindBy(xpath = "//ms-search-button//button")
+    private WebElement searchButton;
+
+    @FindBy(xpath = "//*[text()='Grade Levels']")
+    private WebElement GradeLevel;
+
+    @FindBy(xpath = "(//ms-text-field/input)[3]")
+    private  WebElement Order;
+
+    @FindBy(xpath = "//*[text()='Next Grade']")
+    private WebElement NextGrade;
+
+    @FindBy(xpath = "//*[text()=' Lhomas '] ")
+    private WebElement Lhomas;
+
+    //@FindBy(xpath = "//div/ms-edit-button") bu bize 2.user story de edit yapacağımız buton
+    //ne kadar grade create edildiyse o kadar sayısı var liste mi atılmalı user story 10
+
+    @FindBy(xpath = "//div/ms-text-field/input")
+    private WebElement searchName;
+
+    @FindBy(xpath = "//ms-delete-button//button")
+    private WebElement deleteButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Delete')]")
+    private WebElement deleteDialogBtn;
+
+
+    @FindBy(xpath = "//*[contains(@class,'mat-column-name')]")
+    public WebElement denemeName;
+
+    @FindBy(xpath = "")
 
     WebElement myElement;
     public void findAndSend(String strElement,String value)
@@ -72,9 +115,12 @@ public class DialogContent extends Parent{
         {
             case "username" : myElement=username;break;
             case "password" : myElement=password;break;
-            case "nameInput" : myElement=nameInput;break;
             case "shortName" : myElement=shortNameInput;break;
-            case "searchInput":myElement=searchInput;break;
+            case "nameInput":myElement=nameInput;break;
+            case "BankIban":myElement=BankIban;break;
+            case "IntCode":myElement=IntCode;break;
+            case "Order":myElement=Order;break;
+            case "searchName":myElement=searchName;break;
 
         }
         sendKeysFunction(myElement,value);
@@ -88,10 +134,14 @@ public class DialogContent extends Parent{
             case "acceptCookies":myElement=acceptCookies;break;
             case "add":myElement=addButton;break;
             case "saveButton":myElement=saveButton;break;
+            case "BankAccCurrency":myElement=BankAccCurrency;break;
+            case "Try":myElement=Try;break;
             case "searchButton":myElement=searchButton;break;
+            case "editButton":myElement=editButton;break;
+            case "NextGrade":myElement=NextGrade;break;
+            case "Lhomas":myElement=Lhomas;break;
             case "deleteButton":myElement=deleteButton;break;
             case "deleteDialogBtn":myElement=deleteDialogBtn;break;
-            case "editButton":myElement=editButton;break;
         }
         clickFunction(myElement);
     }
@@ -108,20 +158,30 @@ public class DialogContent extends Parent{
 
     public void SearchAndDelete(String searchText)
     {
-        findAndSend("searchInput",searchText);
-        findAndClick("searchButton");
-        //waitUntilLoading();
-        WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-        findAndClick("deleteButton");
-        findAndClick("deleteDialogBtn");
+//        findAndSend("searchInput",searchText);
+//        findAndClick("searchButton");
+//        waitUntilLoading();
+//        findAndClick("deleteButton");
+//        findAndClick("deleteDialogBtn");
 
     }
+    public void selectByVisibleText(String strElement,String Text) {
 
+        switch (strElement) {
 
+            case "BankAccCurrency":myElement=BankAccCurrency;break;
+        }
+        selectFunctionByText(myElement,Text);
+    }
 
+    public void selectByIndexText(String strElement,int index) {
 
+        switch (strElement) {
 
+            case "BankAccCurrency":myElement=BankAccCurrency;break;
+        }
+        selectFunctionByIndex(myElement,index);
+    }
 
 
 }
