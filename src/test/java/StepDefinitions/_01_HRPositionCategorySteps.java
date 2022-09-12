@@ -1,5 +1,7 @@
 package StepDefinitions;
 
+import Pages.DialogContent;
+import Pages.LeftNav;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 
