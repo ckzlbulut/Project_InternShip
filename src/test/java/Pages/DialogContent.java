@@ -4,6 +4,10 @@ import Utilities.GWD;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class DialogContent extends Parent{
 
@@ -38,6 +42,9 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//ms-save-button//button")
     private WebElement saveButton;
 
+    @FindBy(xpath = "//ms-search-button//button")
+    public WebElement searchButton;
+
     @FindBy(css = "dynamic-view[class='ng-star-inserted']")
     private WebElement  successMessage;
     //div[contains(text(),'successfully')]
@@ -45,6 +52,20 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//div[contains(text(),'already exists')]")
     private WebElement alreadyExist;
 
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='code']//input")
+    private WebElement code;
+
+    @FindBy(xpath = "//ms-delete-button//button")
+    private WebElement deleteButton;
+
+    @FindBy(xpath = "//ms-edit-button//button")
+    private WebElement editButton;
+
+    @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[1]")
+    private WebElement searchInput;
+
+    @FindBy(xpath = "//span[contains(text(),'Delete')]")
+    private WebElement deleteDialogBtn;
 
     WebElement myElement;
     public void findAndSend(String strElement,String value)
@@ -55,6 +76,8 @@ public class DialogContent extends Parent{
             case "password" : myElement=password;break;
             case "nameInput" : myElement=nameInput;break;
             case "shortName" : myElement=shortNameInput;break;
+            case "code" : myElement=code;break;
+            case "searchInput":myElement=searchInput;break;
         }
         sendKeysFunction(myElement,value);
     }
@@ -67,6 +90,12 @@ public class DialogContent extends Parent{
             case "acceptCookies":myElement=acceptCookies;break;
             case "add":myElement=addButton;break;
             case "saveButton":myElement=saveButton;break;
+            case "addButton":myElement=addButton;break;
+            case "editButton":myElement=editButton;break;
+            case "deleteButton" : myElement =deleteButton; break;
+            case "searchButton" : myElement =searchButton; break;
+            case "deleteDialogBtn":myElement=deleteDialogBtn;break;
+
         }
         clickFunction(myElement);
     }
@@ -75,26 +104,23 @@ public class DialogContent extends Parent{
     {
         switch (strElement)
         {
-            case "dashboard" : myElement=dashboard;break;
-            case "success":myElement=successMessage;break;
+            case "dashboard": myElement=dashboard;break;
+            case "success": myElement=successMessage;break;
         }
         verfyContainsText(myElement,text);
     }
 
     public void SearchAndDelete(String searchText)
     {
-//        findAndSend("searchInput",searchText);
-//        findAndClick("searchButton");
-//        waitUntilLoading();
-//        findAndClick("deleteButton");
-//        findAndClick("deleteDialogBtn");
+        findAndSend("searchInput",searchText);
+        findAndClick("searchButton");
+        //waitUntilLoading();
+        WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+        findAndClick("deleteButton");
+        findAndClick("deleteDialogBtn");
 
     }
-
-
-
-
-
 
 
 }
