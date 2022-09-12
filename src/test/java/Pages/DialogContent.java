@@ -29,6 +29,7 @@ public class DialogContent extends Parent{
 
     @FindBy(xpath = "(//button[@class='consent-give'])[1]")
     private WebElement acceptCookies;
+
     @FindBy(xpath = "(//span[contains(text(),'Dashboard')])[2]")
     private WebElement dashboard;
 
@@ -106,7 +107,11 @@ public class DialogContent extends Parent{
     @FindBy(xpath = "//*[contains(@class,'mat-column-name')]")
     public WebElement denemeName;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='code']//input")
+    private WebElement code;
+
+    @FindBy(xpath = "(//div[contains(@class,'mat-form-field-infix ng-tns-c74')]//input)[1]")
+    private WebElement searchInput;
 
     WebElement myElement;
     public void findAndSend(String strElement,String value)
@@ -121,6 +126,8 @@ public class DialogContent extends Parent{
             case "IntCode":myElement=IntCode;break;
             case "Order":myElement=Order;break;
             case "searchName":myElement=searchName;break;
+            case "code" : myElement=code;break;
+            case "searchInput":myElement=searchInput;break;
 
         }
         sendKeysFunction(myElement,value);
@@ -142,6 +149,7 @@ public class DialogContent extends Parent{
             case "Lhomas":myElement=Lhomas;break;
             case "deleteButton":myElement=deleteButton;break;
             case "deleteDialogBtn":myElement=deleteDialogBtn;break;
+            case "addButton":myElement=addButton;break;
         }
         clickFunction(myElement);
     }
@@ -158,11 +166,16 @@ public class DialogContent extends Parent{
 
     public void SearchAndDelete(String searchText)
     {
-//        findAndSend("searchInput",searchText);
-//        findAndClick("searchButton");
+        findAndSend("searchInput",searchText);
+        findAndClick("searchButton");
+
 //        waitUntilLoading();
-//        findAndClick("deleteButton");
-//        findAndClick("deleteDialogBtn");
+
+        WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+
+        findAndClick("deleteButton");
+        findAndClick("deleteDialogBtn");
 
     }
     public void selectByVisibleText(String strElement,String Text) {
