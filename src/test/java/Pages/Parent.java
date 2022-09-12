@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class Parent {
 
@@ -69,10 +70,11 @@ public class Parent {
     public void selectFunctionByIndex(WebElement element,int index)
     {
         waitUntilVisible(element);
-        scrollToElement(element);
+        //scrollToElement(element);
         Select dd=new Select(element);
         dd.selectByIndex(index);
     }
+
 
 
 }
