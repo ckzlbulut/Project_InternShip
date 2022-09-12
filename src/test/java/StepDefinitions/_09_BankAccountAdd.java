@@ -7,15 +7,14 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
 public class _09_BankAccountAdd {
 
-    LeftNav left=new LeftNav();
+   LeftNav left =new LeftNav();
+   DialogContent dialogC=new DialogContent();
 
-    DialogContent dialogC=new DialogContent();
 
     @Given("Bank Accounts tab should be under the Setup  Parameters tab.")
     public void bankAccountsTabShouldBeUnderTheSetupParametersTab() {
