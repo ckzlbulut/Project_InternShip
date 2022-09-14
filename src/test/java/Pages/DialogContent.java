@@ -130,6 +130,7 @@ public class DialogContent extends Parent{
     @FindBy(xpath="//ms-text-field[@formcontrolname='code']//input")
     private WebElement codeInput;
 
+    //9-10locators
     @FindBy(xpath ="//ms-text-field[@formcontrolname='description']//input[1]" )
     private WebElement descriptionInput;
 
