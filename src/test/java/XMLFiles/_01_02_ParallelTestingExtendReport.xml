@@ -6,7 +6,7 @@
     </listeners>
 
     <test name="Test 1">
-        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="Runners._01_02_FeatureRunnerParallel"></class>
         </classes>

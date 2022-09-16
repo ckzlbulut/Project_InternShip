@@ -9,11 +9,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 @CucumberOptions(
-        features = {"src/test/java/FeatureFiles/_01_HRPositionCategory.feature",
-                    "src/test/java/FeatureFiles/_02_HRAttestations.feature"},
+        features = {"src/test/java/FeatureFiles"},
         glue = "StepDefinitions",
         plugin= {"pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json"}
-
 )
 public class _01_02_FeatureRunnerParallel extends AbstractTestNGCucumberTests {
     @BeforeClass(alwaysRun = true)
